@@ -2,6 +2,7 @@
   "name": "federico-roma",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "npm@9.9.4",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -20,7 +21,7 @@
     "react-i18next": "^15.6.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^6.30.1",
-    "swiper": "^11.2.10",
+    "swiper": "^12.1.4",
     "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {
