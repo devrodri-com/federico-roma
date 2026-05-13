@@ -4,15 +4,22 @@ import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
 
+type FormData = {
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+};
+
 const Contact = () => {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     phone: "",
     email: "",
     message: ""
   });
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
@@ -37,12 +44,12 @@ const Contact = () => {
   };
 
   const validateForm = () => {
-    let newErrors: any = {};
+    const newErrors: Partial<FormData> = {};
     if (!formData.name) newErrors.name = t("contact.validation.required");
     if (!formData.email) newErrors.email = t("contact.validation.required");
     if (!formData.phone) newErrors.phone = t("contact.validation.required");
     if (!formData.message) newErrors.message = t("contact.validation.required");
-    setErrors(newErrors);
+    setErrors({ name: "", email: "", phone: "", message: "", ...newErrors });
     return Object.keys(newErrors).length === 0;
   };
 

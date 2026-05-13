@@ -2,6 +2,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation, Mousewheel } from 'swiper/modules';
+import type { Swiper as SwiperInstance } from 'swiper';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRef, useState, useEffect } from 'react';
@@ -42,7 +43,7 @@ export default function FedericoSlider() {
       subtitle: t('federicoSlider.slide5.subtitle'),
     },
   ];
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<SwiperInstance | null>(null);
 
   const [isMobile, setIsMobile] = useState(false);
 
